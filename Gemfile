@@ -5,6 +5,9 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# copied from https://stackoverflow.com/questions/28241981/rails-4-execjsprogramerror-in-pageswelcome
+# this may fix the bug of "ActionView::Template::Error (TypeError: 对象不支持此属性或方法):"
+gem 'coffee-script-source', '1.8.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.4'
