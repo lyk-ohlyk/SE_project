@@ -1,3 +1,3 @@
-# SE_Project
+# 摸鱼小组的repository
 
-大家大致按rails new的方法建立文件夹吧，就是按MVC的模式。
+我已经rails new了一个app，参考ruby on rails 4 tutorial。 ——lyk
