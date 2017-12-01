@@ -2,9 +2,9 @@
 class Exam
 	def initialize
 		@number = 		[""]
-		@id = 			[""]
-		@class_time = 	[""]
-		@class_name = 	[""]
+		@course_code = 			[""]
+		@course_time = 	[""]
+		@course_name = 	[""]
 		@score = 		[""]
 		@exam_date = 	[""]
 		@exam_hour = 	[""]
@@ -15,30 +15,43 @@ class Exam
     def get_exam(i)
     	data = {}
     	data['number'] = @number[i]
-    	data['id'] = @id[i]
-    	data['class_time'] = @class_time[i]
-    	data['class_name'] = @class_name[i]
+    	data['course_code'] = @course_code[i]
+    	data['course_time'] = @course_time[i]
+    	data['course_name'] = @course_name[i]
     	data['score'] = @score[i]
     	data['exam_date'] = @exam_date[i]
     	data['exam_hour'] = @exam_hour[i]
     	data['exam_place'] = @exam_place[i]
     	data
     end
-	def write_data(data)
+	def read_data(data)
 		if data.size != @feature_size
 			warn "can't fit data:"
 			#warn "#{data}"
 			return
 		end
 		@number[@@total_num] = 		data[0]
-		@id[@@total_num] = 			data[1]
-		@class_name[@@total_num] = 	data[2]
-		@class_time[@@total_num] = 	data[3]
+		@course_code[@@total_num] = 			data[1]
+		@course_name[@@total_num] = 	data[2]
+		@course_time[@@total_num] = 	data[3]
 		@score[@@total_num] = 		data[4]
 		@exam_date[@@total_num] = 	data[5]
 		@exam_hour[@@total_num] = 	data[6]
 		@exam_place[@@total_num] = 	data[7]
 		@@total_num += 1
+		temp_course = Course.new(
+			course_code:"#{data[1]}",
+			course_name:"#{data[2]}", 
+			course_time:"#{data[3]}", 
+			score:"#{data[4]}", 
+			exam_date:"#{data[5]}", 
+			exam_hour:"#{data[6]}", 
+			exam_place:"#{data[7]}"
+			)
+		if !temp_user.save
+			warn "save error"
+		end
+
 	end
 end
 
@@ -49,7 +62,7 @@ File.open("exams_of_class.csv","r+") do |file|
 		#line = file.gets
 		#puts line
 		data = line.split(',')
-		test_exams.write_data(data);
+		test_exams.read_data(data);
 		if(i == 24)
 			puts line
 		end
@@ -57,4 +70,4 @@ File.open("exams_of_class.csv","r+") do |file|
 	end
 end
 
-puts test_exams.get_exam(24)['id']
+puts test_exams.get_exam(24)['course_code']

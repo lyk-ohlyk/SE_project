@@ -1,5 +1,16 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy, :open_file]
+
+  # def open_file
+  #   File.open("exams_of_class.csv","r+") do |file|
+  #     while line = file.gets
+  #       #line = file.gets
+  #       #puts line
+  #       data = line.split(',')
+  #       test_exams.read_data(data);
+  #     end
+  #   end
+  # end
 
   # GET /courses
   # GET /courses.json
@@ -71,4 +82,24 @@ class CoursesController < ApplicationController
     def course_params
       params.require(:course).permit(:course_code, :course_name, :course_time, :score, :exam_date, :exam_hour, :exam_place)
     end
+
+    # def read_data(data)
+    #   if data.size != 8
+    #     warn "can't fit data:"
+    #     #warn "#{data}"
+    #     return
+    #   end
+    #   temp_course = Course.new(
+    #     course_code:"#{data[1]}",
+    #     course_name:"#{data[2]}", 
+    #     course_time:"#{data[3]}", 
+    #     score:"#{data[4]}", 
+    #     exam_date:"#{data[5]}", 
+    #     exam_hour:"#{data[6]}", 
+    #     exam_place:"#{data[7]}"
+    #     )
+    #   if !temp_user.save
+    #     warn "save error"
+    #   end
+    # end
 end

@@ -44,6 +44,15 @@ group :development, :test do
   gem 'selenium-webdriver'
   #rspec for learning how to test
   gem 'rspec-rails', '~> 3.6'
+  gem 'guard-rspec', require: false
+
+  #直接安装spork会出现下面的错误：
+  #    spork-rails x86-mingw32 was resolved to 3.2.1, which depends on
+  #    rails (< 3.3.0, >= 3.0.0) x86-mingw32
+  #gem 'spork-rails'
+  #spork 好像只支持rails 4，不再尝试这个了
+  #gem 'spork-rails', github: 'railstutorial/spork-rails'
+  #gem 'guard-spork', '1.5.0'
 end
 
 group :development do
