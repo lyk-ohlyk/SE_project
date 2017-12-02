@@ -28,16 +28,6 @@ if data.size != @feature_size
 warn "can't fit data:"
 return
 end
-
-@number[@@total_num] = data[0]
-@course_code[@@total_num] = data[1]
-@course_name[@@total_num] = 	data[2]
-@course_time[@@total_num] = 	data[3]
-@score[@@total_num] = data[4]
-@exam_date[@@total_num] = 	data[5]
-@exam_hour[@@total_num] = 	data[6]
-@exam_place[@@total_num] = 	data[7]
-@@total_num += 1
 temp_course = Course.new(
 course_code:"#{data[1]}",
 course_name:"#{data[2]}", 
@@ -47,13 +37,13 @@ exam_date:"#{data[5]}",
 exam_hour:"#{data[6]}", 
 exam_place:"#{data[7]}"
 )
-if !temp_user.save
+if !temp_course.save
 warn "save error"
 end
 end
 end
 test_exams = Exam.new;
-File.open("C:\\Users\\atu\\Documents\\GitHub\\SE_project\\lib\\exams_of_class.csv","r+") do |file|
+File.open("C:\\Users\\atu\\Documents\\GitHub\\SE_project\\exams_of_class.csv","r+") do |file|
 i = 0
 while line = file.gets
 line = line.encode(Encoding.find("UTF-8"), Encoding.find("GBK"))
@@ -65,4 +55,5 @@ end
 i += 1
 end
 end
-puts test_exams.get_exam(24)['course_code']
+#puts test_exams.get_exam(24)['course_code']
+puts "done!!!"
