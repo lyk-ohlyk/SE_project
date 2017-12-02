@@ -1,9 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
-  #让服务器静态资源文件
-  config.serve_static_assets = true
-
   # Code is not reloaded between requests.
   config.cache_classes = true
 
