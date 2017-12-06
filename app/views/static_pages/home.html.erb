@@ -6,8 +6,15 @@
     <a href="http://railstutorial.org/">Ruby on Rails Tutorial</a>
     sample application.
   </h2>
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-  <%= link_to "Search course now!", search_path, class: "btn btn-large btn-primary" %>
+  <!--%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %-->
+  <%= link_to "Find course now!", index_path, class: "btn btn-large btn-primary" %>
+  <!--<div>
+    <form action="/search" class="search_course" id="search_course" method="post">
+      <input id="course_code" name="course[course_code]" type="text" />
+      <input class="btn btn-large btn-primary" name="commit" type="submit"
+             value="search" />
+    </form>
+  </div>
   <!--<form accept-charset="UTF-8" action="/search" method="post">-->
   <!--<label for="course_code">Confirmation</label>-->
   <!--<input id="course_code"-->
