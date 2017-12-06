@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   match '/about', to: 'static_pages#about', via: 'get'
   # get 'static_pages/contact'
   match '/contact', to: 'static_pages#contact', via: 'get'
+  match '/search', to: 'static_pages#search', via: 'get'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :courses
