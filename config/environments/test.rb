@@ -37,6 +37,10 @@ Rails.application.configure do
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
 
+  # Speed up tests by lowering bcrypt's cost function.
+  # 这个真的有用么？？
+  #  ActiveModel::SecurePassword.min_cost = true
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end

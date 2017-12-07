@@ -51,6 +51,8 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.6'
   gem 'guard-rspec', require: false
 
+  gem 'factory_bot_rails'
+
   #直接安装spork会出现下面的错误：
   #    spork-rails x86-mingw32 was resolved to 3.2.1, which depends on
   #    rails (< 3.3.0, >= 3.0.0) x86-mingw32
