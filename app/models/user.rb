@@ -12,9 +12,9 @@ class User < ApplicationRecord
   #作用是防止大小写的重复
   before_save { self.email = email.downcase }
 
-  #has_secure_password
+  has_secure_password
   validates :password, length: { minimum: 6 }
 end
 
 
-#RailsInstaller\Ruby2.3.3\lib\ruby\gems\2.3.0\gems\bcrypt-3.1.11\ext\mri>
+#C:\RailsInstaller\Ruby2.3.3\lib\ruby\gems\2.3.0\gems\bcrypt-3.1.11-x86-mingw32\ext\mri

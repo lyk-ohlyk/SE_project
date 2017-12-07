@@ -9,9 +9,9 @@ RSpec.describe 'StaticPages', type: :request do
     expect(page).to have_title('Help')
     click_link 'Contact'
     expect(page).to have_title('Contact')
-    click_link 'Home'
-    click_link 'Sign up now!'
-    expect(page).to have_title('Sign up')
+    #click_link 'Home'
+    #click_link 'Sign up now!'
+    #expect(page).to have_title('Sign up')
     click_link 'Home'
     #这个挺厉害的，相当于模仿了用户的点击流程
     click_link 'Search course now!'
