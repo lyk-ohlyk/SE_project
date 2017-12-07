@@ -31,6 +31,15 @@ RSpec.describe User, type: :model do
     it {should_not be_valid}
   end
 
+  describe 'when emails are with mixed case' do
+    let(:mixed_email) {'FooMdaB@ExaMPle.cOM'}
+    it 'should be saved under lower-case' do
+      @user.email = mixed_email
+      @user.save
+      expect(@user.reload.email).to eq mixed_email.downcase
+    end
+  end
+
   describe "when password doesn't match confirmation" do
     before { @user.password_confirmation = 'mismatch' }
     it { should_not be_valid }
