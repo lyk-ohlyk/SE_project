@@ -18,7 +18,7 @@ module EasyHTTP
             uri =  URI.parse(@login)
             params = {}
             params['userName'] = '444896219@qq.com'
-            params['pwd'] = ''
+            params['pwd'] = '360734199506250010'
             params['sb'] = 'sb'
             res = Net::HTTP.post_form(uri , params)
             #puts "logining header:\n#{res.to_hash.inspect}"
@@ -130,7 +130,6 @@ user_membership_body = sample.get(user_membership).body
 #tool_reset_site = $1
 
 puts class_site = $1
-
 class_table = sample.get(class_site)
 puts class_table.body
 

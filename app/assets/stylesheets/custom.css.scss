@@ -159,3 +159,26 @@ input, textarea, select, .uneditable-input {
 input {
   height: auto !important;
 }
+
+.alert-error{
+  background-color: #f8b2b2;
+}
+
+#error_explanation {
+  float: left;
+  color: #f00;
+  ul {
+    list-style: none;
+    margin: 0 0 0px 0;
+    li{
+      margin-right: 20px;
+      float: left;
+//      margin-left: 100px;
+    }
+  }
+}
+
+.field_with_errors {
+  //@extend .control-group !optional;
+  @extend .has-error;
+}

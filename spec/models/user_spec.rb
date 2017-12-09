@@ -17,7 +17,7 @@ RSpec.describe User, type: :model do
   it { should respond_to(:authenticate) }
   it { should be_valid }
 
-  describe 'when name is already taken' do
+  describe 'when email is already taken' do
     before do
       user_with_same_email = @user.dup
       user_with_same_email.email = @user.email.upcase
@@ -47,7 +47,7 @@ RSpec.describe User, type: :model do
 
   describe "with a password that's too short" do
     before { @user.password = @user.password_confirmation = 'a' * 5 }
-    it { should be_invalid }
+    it { should_not be_valid }
   end
 
   describe 'return value of authenticate method' do
