@@ -21,8 +21,8 @@ Rails.application.routes.draw do
   # get 'static_pages/contact'
   match '/contact', to: 'static_pages#contact', via: 'get'
 
-  match '/search', to: 'courses#search', via: 'get'
-  match '/search', to: 'courses#search', via: 'post'
+  match '/search', to: 'users#search', via: 'get'
+  #match '/search', to: 'courses#search', via: 'post'
   match '/index', to:'courses#index', via: 'get'
 
 

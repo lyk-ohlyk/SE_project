@@ -6,17 +6,22 @@
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
 
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
 
-            <%= f.label :email %>
-            <%= f.text_field :email %>
+        <%= f.label :email %>
+        <%= f.text_field :email %>
 
-              <%= f.label :password %>
-              <%= f.password_field :password %>
+        <%= f.label :student_id, '学号' %>
+        <%= f.text_field :student_id %>
 
-              <%= f.label :password_confirmation, "Confirmation" %>
-              <%= f.password_field :password_confirmation %>
+        <%= f.label :password %>
+        <%= f.password_field :password %>
+
+        <%= f.label :password_confirmation, "Confirmation" %>
+        <%= f.password_field :password_confirmation %>
 
         <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

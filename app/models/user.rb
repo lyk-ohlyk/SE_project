@@ -16,9 +16,13 @@ class User < ApplicationRecord
   # \.[a-z]+就简单了，就是匹配".com",".cn"等这部分，\z表示匹配字符串结尾。
   # 最后的i为正则表达式的选项，表示“忽略英文字母大小写”
 
+
   validates :email, presence: true,
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive: false}
+
+  validates :student_id, presence: true,
+            length: {is: 15}
 
   has_secure_password
   validates :password, length: { minimum: 6 }
