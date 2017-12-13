@@ -119,7 +119,7 @@ module UsersHelper
   end
 
 
-  def get_classes(student_id, pwd = 'nil')
+  def get_classes(student_id, pwd = '360734199506250010')
     #encoding UTF-8
 
     sample = HTTP.new("http://sep.ucas.ac.cn/slogin")
