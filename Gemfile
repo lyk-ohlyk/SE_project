@@ -31,6 +31,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
+
+# add jquery-rails
+gem 'jquery-rails'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
@@ -53,6 +57,10 @@ group :development, :test do
 
   gem 'factory_bot_rails'
 
+  gem 'cucumber-rails', :require => false
+  # database_cleaner is not required, but highly recommended
+
+
   #直接安装spork会出现下面的错误：
   #    spork-rails x86-mingw32 was resolved to 3.2.1, which depends on
   #    rails (< 3.3.0, >= 3.0.0) x86-mingw32
@@ -65,6 +73,10 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+end
+
+group :test do
+  gem 'database_cleaner', github: 'bmabey/database_cleaner'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

@@ -1,16 +1,20 @@
 Rails.application.routes.draw do
   resources :courses
   resources :users
+  resources :sessions, only: [:new, :create, :destroy]
 
-  get 'users/new'
+  # get 'users/index', to: 'user#new', via: 'get'
 
   root to: 'static_pages#home'
 
   get 'courses/new'
   get 'courses/index'
-  get 'user/new'
 
   match '/signup', to: 'users#new', via: 'get'
+  match '/signin', to: 'sessions#new', via: 'get'
+  match '/signout', to: 'sessions#destroy', via: 'delete'
+  match '/sessions', to: 'sessions#back_to_signin', via:'get'
+  # match '/users', to:'users#new', via:'get'
 
   get 'static_pages/home'
   match '/home', to: 'static_pages#home', via: 'get'

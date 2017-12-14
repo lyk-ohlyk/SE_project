@@ -21,3 +21,10 @@
 /yarn-error.log
 
 .byebug_history
+
+doc/
+*.swp
+*~
+.project
+.DS_Store
+.idea

@@ -167,10 +167,13 @@ input {
 #error_explanation {
   float: left;
   color: #f00;
+  width: 100%;
+  margin-bottom: 20px;
   ul {
     list-style: none;
     margin: 0 0 0px 0;
     li{
+      width: 100%;
       margin-right: 20px;
       float: left;
 //      margin-left: 100px;
