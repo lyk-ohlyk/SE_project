@@ -1,17 +1,18 @@
 <% provide(:title, '课程信息') %>
-<table>
-  <tr>
-    <th>课程编码</th>
-    <th>课程名</th>
-    <th>课时</th>
-    <th>学分</th>
-    <th>考试日期</th>
-    <th>考试时间</th>
-    <th>考试地点</th>
-  </tr>
 
-  <% @course_codes = get_classes @student_id %>
-  <% @course_codes.each do |c| %>
+<% if !@course_codes.nil? %>
+  <table>
+    <tr>
+      <th>课程编码</th>
+      <th>课程名</th>
+      <th>课时</th>
+      <th>学分</th>
+      <th>考试日期</th>
+      <th>考试时间</th>
+      <th>考试地点</th>
+    </tr>
+
+    <% @course_codes.each do |c| %>
       <% @course = Course.find_by_course_code(c) %>
       <% if @course == nil %>
           <% next %>
@@ -25,5 +26,6 @@
         <td><%= @course.exam_hour %></td>
         <td><%= @course.exam_place %></td>
       </tr>
-  <% end %>
-</table>
+    <% end %>
+  </table>
+<% end %>
