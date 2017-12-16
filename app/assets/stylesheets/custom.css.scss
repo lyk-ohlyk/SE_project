@@ -2,6 +2,7 @@
 
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
+$grayLighter: #e3e3e3;
 
 html {
   overflow-y: scroll;
@@ -184,4 +185,21 @@ input {
 .field_with_errors {
   //@extend .control-group !optional;
   @extend .has-error;
+}
+
+/* Users index */
+.users {
+  list-style: none;
+  margin: 0;
+  float: left;
+  li {
+    overflow: auto;
+    padding: 10px 0;
+    border-top: 1px solid $grayLighter;
+    &:last-child {
+      border-bottom: 1px solid $grayLighter;
+    }
+
+    width: 100%;
+  }
 }

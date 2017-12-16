@@ -106,6 +106,8 @@ GEM
     factory_bot_rails (4.8.2)
       factory_bot (~> 4.8.2)
       railties (>= 3.0.0)
+    faker (1.8.5)
+      i18n (~> 0.9.1)
     ffi (1.9.18-x86-mingw32)
     formatador (0.2.5)
     gherkin (5.0.0)
@@ -277,6 +279,7 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner!
   factory_bot_rails
+  faker
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails

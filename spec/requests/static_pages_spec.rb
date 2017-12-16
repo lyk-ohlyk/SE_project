@@ -22,6 +22,7 @@ RSpec.describe 'StaticPages', type: :request do
 
 
   subject { page }
+
   describe 'Home page' do
     before {visit root_path}
     it 'should have the h1 "Moyu"' do
