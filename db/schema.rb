@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171213003502) do
+ActiveRecord::Schema.define(version: 20171217024327) do
 
   create_table "courses", force: :cascade do |t|
     t.string "course_code"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 20171213003502) do
     t.string "password_digest"
     t.string "student_id"
     t.string "remember_token"
+    t.boolean "admin", default: false
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 

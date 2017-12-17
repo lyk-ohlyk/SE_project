@@ -30,11 +30,9 @@ RSpec.describe "AuthenticationPages", type: :request do
 
     describe "with valid information" do
       let(:user) { FactoryBot.create(:user) }
+
       before do
         sign_in user
-        # fill_in "Email", with: user.email.upcase
-        # fill_in "Password", with: user.password
-        # click_button '登陆'
       end
       # before { valid_signin(user) }
 
@@ -52,7 +50,7 @@ RSpec.describe "AuthenticationPages", type: :request do
     end
   end
 
-  # 权限限制
+  # ----------- 权限限制 -----------
   describe "authorization" do
     describe "for non-signed-in users" do
       let(:user) { FactoryBot.create(:user) }
@@ -72,6 +70,12 @@ RSpec.describe "AuthenticationPages", type: :request do
           before { visit users_path }
           it { should have_title('登陆') }
         end
+      end
+
+      describe "he should not see profile or settings" do
+        before { visit root_path }
+        it{ should_not have_content('Profile')}
+        it{ should_not have_content('Settings')}
       end
 
       describe "when attempting to visit a protected page" do
@@ -104,7 +108,15 @@ RSpec.describe "AuthenticationPages", type: :request do
       end
     end
 
-
+    describe "as non-admin user" do
+      let(:user) { FactoryBot.create(:user) }
+      let(:non_admin) { FactoryBot.create(:user) }
+      before { sign_in non_admin, no_capybara: true }
+      describe "submitting a DELETE request to the Users#destroy action" do
+        before { delete user_path(user) }
+        specify { expect(response).to redirect_to(root_path) }
+      end
+    end
 
   end
 end

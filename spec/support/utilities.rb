@@ -25,11 +25,9 @@ RSpec::Matchers.define :have_error_message do |message|
   end
 end
 
-
-# public_method  #=> 用这个也没用
 def sign_in(user, options={})
   if options[:no_capybara]
-# Sign in when not using Capybara.
+    # Sign in when not using Capybara.
     remember_token = User.new_remember_token
     cookies[:remember_token] = remember_token
     user.update_attribute(:remember_token, User.encrypt(remember_token))

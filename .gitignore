@@ -28,3 +28,4 @@ doc/
 .project
 .DS_Store
 .idea
+method_getres.rb

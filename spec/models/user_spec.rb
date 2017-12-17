@@ -17,8 +17,21 @@ RSpec.describe User, type: :model do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:remember_token)}
+
   it { should respond_to(:authenticate) }
+  it { should respond_to(:admin) }
+
   it { should be_valid }
+  it { should_not be_admin }
+
+  describe "with admin attribute set to 'true'" do
+    before do
+      @user.save!
+      @user.toggle!(:admin)
+    end
+    it { should be_admin }
+  end
+
 
   describe 'when email is already taken' do
     before do

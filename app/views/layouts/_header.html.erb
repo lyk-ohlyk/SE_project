@@ -3,7 +3,7 @@
     <div class="container">
       <%= link_to 'Course', home_path, id: 'logo' %>
       <nav>
-        <ul class='nav'>
+        <ul class='nav', id="header">
           <li><%= link_to 'Home', home_path %></li>
           <li><%= link_to 'Help', help_path %></li>
           <% if signed_in? %>
@@ -12,7 +12,7 @@
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 Account <b class="caret"></b>
               </a>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu" id="dropdown">
                 <li><%= link_to "Profile", current_user %></li>
                 <li><%= link_to "Settings", edit_user_path(current_user) %></li>
                 <li class="divider"></li>

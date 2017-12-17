@@ -8,6 +8,8 @@ end
 # copied from https://stackoverflow.com/questions/28241981/rails-4-execjsprogramerror-in-pageswelcome
 # this may fix the bug of "ActionView::Template::Error (TypeError: 对象不支持此属性或方法):"
 gem 'coffee-script-source', '1.8.0'
+gem 'will_paginate', '~> 3.1.0'
+gem 'will_paginate-bootstrap'
 
 gem 'bootstrap-sass', '~> 3.3.7'
 #gem 'bcrypt-ruby', '~> 3.1.2'

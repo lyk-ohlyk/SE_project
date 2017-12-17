@@ -64,12 +64,21 @@ p {
     text-decoration: none;
   }
 }
-ul {
+
+.nav{
+  float: right;
   padding-top: 5px;
   li {
-    float: right;
+    float: left;
   }
 }
+.dropdown-menu{
+  li{
+    float: none;
+    padding-left: 0;
+  }
+}
+
 
 /* footer */
 footer {
@@ -192,6 +201,8 @@ input {
   list-style: none;
   margin: 0;
   float: left;
+  width: 100%;
+  padding-left: 0px;
   li {
     overflow: auto;
     padding: 10px 0;
@@ -199,7 +210,10 @@ input {
     &:last-child {
       border-bottom: 1px solid $grayLighter;
     }
-
-    width: 100%;
   }
+}
+
+.pagination {
+  width: 100%;
+  text-align: center;
 }
