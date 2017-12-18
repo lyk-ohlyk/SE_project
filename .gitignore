@@ -27,5 +27,6 @@ doc/
 *~
 .project
 .DS_Store
-.idea
+.idea/
 method_getres.rb
+.idea/workspace.xml

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
 
   # get 'users/index', to: 'user#new', via: 'get'
 
@@ -9,6 +10,8 @@ Rails.application.routes.draw do
 
   get 'courses/new'
   get 'courses/index'
+
+  match '/microposts', to: 'static_pages#home', via: 'get'
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

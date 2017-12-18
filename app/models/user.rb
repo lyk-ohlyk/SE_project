@@ -1,5 +1,7 @@
 class User < ApplicationRecord
-  # has_many Course
+  # has_many :courses
+  has_many :microposts, dependent: :destroy
+
 
   #存入数据库之前，把email换成小写的模式
   #作用是防止大小写的重复
@@ -27,6 +29,11 @@ class User < ApplicationRecord
 
   has_secure_password
   validates :password, length: { minimum: 6 }
+
+  def feed
+# This is preliminary. See "Following users" for the full implementation.
+    Micropost.where("user_id = ?", id)
+  end
 
   def User.new_remember_token
     SecureRandom.urlsafe_base64
