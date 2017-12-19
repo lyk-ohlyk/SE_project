@@ -2,6 +2,13 @@ class User < ApplicationRecord
   # has_many :courses
   has_many :microposts, dependent: :destroy
 
+  has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
+  has_many :followed_users, through: :relationships, source: :followed
+
+  has_many :reverse_relationships, foreign_key: 'followed_id',
+           class_name: 'Relationship', # 如果没有类名，rails会寻找这个ReverseRelationship类
+           dependent: :destroy
+  has_many :followers, through: :reverse_relationships, source: :follower
 
   #存入数据库之前，把email换成小写的模式
   #作用是防止大小写的重复
@@ -30,16 +37,26 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, length: { minimum: 6 }
 
-  def feed
-# This is preliminary. See "Following users" for the full implementation.
-    Micropost.where("user_id = ?", id)
-  end
-
   def User.new_remember_token
     SecureRandom.urlsafe_base64
   end
   def User.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def feed
+# This is preliminary. See "Following users" for the full implementation.
+    Micropost.from_users_followed_by(self)
+  end
+
+  def following?(other_user)
+    relationships.find_by(followed_id: other_user.id)
+  end
+  def follow!(other_user)
+    relationships.create!(followed_id: other_user.id)
+  end
+  def unfollow!(other_user)
+    relationships.find_by(followed_id: other_user.id).destroy
   end
 
   private
@@ -48,6 +65,3 @@ class User < ApplicationRecord
     end
 
 end
-
-
-#C:\RailsInstaller\Ruby2.3.3\lib\ruby\gems\2.3.0\gems\bcrypt-3.1.11-x86-mingw32\ext\mri

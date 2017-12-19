@@ -206,7 +206,7 @@ GEM
     rspec-expectations (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
-    rspec-its (0.0.1.pre)
+    rspec-its (1.2.0)
     rspec-mocks (3.7.0)
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
@@ -289,7 +289,7 @@ DEPENDENCIES
   jquery-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
-  rspec-its (~> 0.0.1.pre)
+  rspec-its
   rspec-rails (~> 3.6)
   sass-rails (~> 5.0)
   selenium-webdriver

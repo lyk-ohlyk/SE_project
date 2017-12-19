@@ -57,7 +57,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   #rspec for learning how to test
   gem 'rspec-rails', '~> 3.6'
-  gem 'rspec-its', '~> 0.0.1.pre'
+  gem 'rspec-its'
   gem 'guard-rspec', require: false
 
   gem 'factory_bot_rails'

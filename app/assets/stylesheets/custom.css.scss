@@ -127,7 +127,7 @@ footer {
 /* sidebar */
 aside {
   section {
-    padding: 10px 0;
+    padding: 10px 0px;
     border-top: 1px solid $gray-lighter;
     &:first-child {
       border: 0;
@@ -148,10 +148,37 @@ aside {
   }
 }
 //gravatar 在users_helper中定义
-.gravatar {
-  float: left;
-  margin-right: 10px;
+.user_avatars {
+  overflow: auto;
+  margin-top: 10px;
+  .gravatar {
+    //float: left;
+    //margin-right: 10px;
+    margin: 1px 1px;
+  }
 }
+
+.stats {
+  overflow: auto;
+  a {
+    float: left;
+    padding: 0 10px;
+    border-left: 1px solid $grayLighter;
+    color: gray;
+    &:first-child {
+      padding-left: 0;
+      border: 0;
+    }
+    &:hover {
+      text-decoration: none;
+      color: #21aaa3;
+    }
+  }
+  strong {
+    display: block;
+  }
+}
+
 
 /* forms */
 form {
@@ -238,8 +265,25 @@ input {
   margin-right: 10px;
 }
 aside {
+  float: left;
+  width: 400px;
+  form{
+    width: auto;
+  }
   textarea {
-    height: 100px;
+    resize: none;
+    height: 200px;
     margin-bottom: 5px;
   }
+}
+.microposts_feed{
+  h3 {
+    margin-top: 0px;
+  }
+  padding-left: 40px;
+  width: 50%;
+  ol{
+    padding: 0px;
+  }
+  float: left;
 }

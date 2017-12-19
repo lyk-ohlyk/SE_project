@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
   resources :courses
-  resources :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
-
+  resources :relationships, only: [:create, :destroy]
   # get 'users/index', to: 'user#new', via: 'get'
 
   root to: 'static_pages#home'
