@@ -11,7 +11,8 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+// 这里本来有 require jquery_ujs的，由于delete的confirm会出现两次就删了
+// 详见https://stackoverflow.com/questions/4475449/link-to-confirm-displays-popup-twice#comment74971057_4475479
 //= require rails-ujs
 //= require turbolinks
 //= require_tree .
