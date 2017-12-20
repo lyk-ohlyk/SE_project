@@ -45,7 +45,7 @@ end
 
   def change
     test_exams = Exam.new
-    File.open("C:\\Users\\atu\\Documents\\GitHub\\SE_project\\exams_of_class.csv","r+") do |file|
+    File.open("exams_of_class.csv","r+") do |file|
       i = 0
       while (line = file.gets)
         line = line.encode(Encoding.find("UTF-8"), Encoding.find("GBK"))
