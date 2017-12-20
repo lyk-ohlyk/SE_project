@@ -25,7 +25,7 @@ data
 end
 def read_data(data)
 if data.size != @feature_size
-warn "can't fit data:"
+warn "can't fit data"
 return
 end
 temp_course = Course.new(
@@ -43,15 +43,15 @@ end
 end
 end
 test_exams = Exam.new;
-#File.open("C:\\Users\\atu\\Documents\\GitHub\\SE_project\\exams_of_class.csv","r+") do |file|
-@linee = ""
-File.open("C:\\Users\\atu\\Desktop\\SE\\Class\\理论声学.csv","r+") do |file|
+File.open("C:\\Users\\atu\\Documents\\GitHub\\SE_project\\exams_of_class.csv","r+") do |file|
+# @linee = ""
+# File.open("C:\\Users\\atu\\Desktop\\SE\\Class\\理论声学.csv","r+") do |file|
 i = 0
 while line = file.gets
 line = line.encode(Encoding.find("UTF-8"), Encoding.find("GBK"))
 data = line.split(',')
-#test_exams.read_data(data);
-@linne = data
+test_exams.read_data(data);
+# @linne = data
 puts line
 i += 1
 end

@@ -1,26 +1,15 @@
-<h1>Listing courses</h1>
-<table>
+<% provide(:title, 'Courses') %>
+
+<h1>All courses</h1>
+
+<table id="courses_list">
   <tr>
-    <th>课程编码</th>
-    <th>课程名</th>
-    <th>课时</th>
-    <th>学分</th>
-    <th>考试日期</th>
-    <th>考试时间</th>
-    <th>考试地点</th>
+    <td><strong>代码</strong></td>
+    <td><strong>课程名称</strong></td>
+    <td><strong>考试日期</strong></td>
+    <td><strong>考试时间</strong></td>
+    <td><strong>考试地点</strong></td>
   </tr>
-  <% @course.each do |course| %>
-      <tr>
-        <td><%= course.course_code %></td>
-        <td><%= course.course_name %></td>
-        <td><%= course.course_time %></td>
-        <td><%= course.score %></td>
-        <td><%= course.exam_date %></td>
-        <td><%= course.exam_hour %></td>
-        <td><%= course.exam_place %></td>
-        <td><%= link_to 'Show', course %></td>
-      </tr>
-  <% end %>
+  <%= render @courses %> <!-- _course.html.erb -->
 </table>
-<br />
-<!--%= link_to 'New User', new_user_path %-->
+

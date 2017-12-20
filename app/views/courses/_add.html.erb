@@ -1,0 +1,4 @@
+<%= form_for(current_user.relatecourses.build(lesson_id: @course.id), remote: true) do |f| %>
+    <div><%= f.hidden_field :lesson_id %></div>
+    <%= f.submit 'Add', class: "btn btn-large btn-primary" %>
+<% end %>

@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
 
   # 权限限制的核心步骤：在访问edit、update页面之前，都要做signed_in_user
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy,
+                                        :following, :followers, :lessons]
   before_action :correct_user, only: [:edit, :update]
   before_action :admin_user, only: :destroy
 
@@ -75,6 +76,13 @@ class UsersController < ApplicationController
     @users = @user.followers.paginate(page: params[:page])
     render 'show_follow'
   end
+
+  def lessons
+    @user = User.find(params[:id])
+    @lessons = @user.lessons.paginate(page: params[:page])
+    render 'show_lesson'
+  end
+
 
 
   private

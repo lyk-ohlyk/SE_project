@@ -11,9 +11,7 @@ RSpec.describe Relationship, type: :model do
   describe "follower methods" do
     it { should respond_to(:follower) }
     it { should respond_to(:followed) }
-    describe "asfd" do
 
-    end
     its(:follower) { should eq follower }
     its(:followed) { should eq followed }
   end

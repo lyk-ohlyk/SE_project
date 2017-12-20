@@ -1,4 +1,23 @@
-<%= @course.course_code %>, <%= @course.course_time %> ,
-<%= @course.course_name %>, <%= @course.score %> ,
-<%= @course.exam_date %>, <%= @course.exam_hour %>,
-<%= @course.exam_place %>
+<% provide(:title, @course.course_name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <h1>
+        <%= @course.course_name %>
+      </h1>
+      <%= render 'learn_form' if signed_in? %>
+    </section>
+  </aside>
+
+  <div class="span8 show_items">
+    <ul>
+      <li>代码:  <%= @course.course_code %></li>
+      <li>课程名字:  <%= @course.course_name %></li>
+      <li>课时:  <%= @course.course_time %> </li>
+      <li>学分:  <%= @course.score %></li>
+      <li>考试日期:  <%= @course.exam_date %></li>
+      <li>考试时间:  <%= @course.exam_hour %></li>
+      <li>考试地点:  <%= @course.exam_place %></li>
+    </ul>
+  </div>
+</div>

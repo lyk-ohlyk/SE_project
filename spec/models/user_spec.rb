@@ -31,6 +31,11 @@ RSpec.describe User, type: :model do
   it { should respond_to(:following?) }
   it { should respond_to(:follow!) }
 
+  it { should respond_to(:relatecourses) }
+  it { should respond_to(:lessons) }
+  it { should respond_to(:learning?) }
+  it { should respond_to(:learn!) }
+
   it { should be_valid }
   it { should_not be_admin }
 
@@ -162,6 +167,24 @@ RSpec.describe User, type: :model do
       before { @user.unfollow!(other_user) }
       it { should_not be_following(other_user) }
       its(:followed_users) { should_not include(other_user) }
+    end
+  end
+
+  describe 'learning' do
+    let(:new_lesson) { FactoryBot.create(:course)}
+    before do
+      @user.save
+      @user.learn!(new_lesson)
+    end
+
+    it { should be_learning(new_lesson) }
+    its(:lessons) { should include(new_lesson)}
+
+    describe 'and unlearning' do
+      before {@user.unlearn!(new_lesson)}
+
+      it { should_not be_learning(new_lesson)}
+      its(:lessons) { should_not include(new_lesson)}
     end
   end
 

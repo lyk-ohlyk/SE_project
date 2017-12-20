@@ -1,0 +1,9 @@
+<% if signed_in? %>
+  <div id="learn_form">
+    <% if current_user.learning?(@course) %>
+      <%= render 'remove' %>
+    <% else %>
+      <%= render 'add' %>
+    <% end %>
+  </div>
+<% end %>

@@ -9,11 +9,11 @@
     </section>
     <section>
       <%= render 'shared/stats' %>
+      <%= render 'follow_form' if signed_in? %>
     </section>
   </aside>
 
-  <div class="span8 microposts_feed">
-    <%= render 'follow_form' if signed_in? %>
+  <div class="span8 show_items">
     <% if @user.microposts.any? %>
         <h3>Microposts (<%= @user.microposts.count %>)</h3>
         <ol class="microposts">

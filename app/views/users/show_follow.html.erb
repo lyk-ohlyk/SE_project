@@ -18,13 +18,13 @@
 			<% end %>
 		</section>
 	</aside>
-	<div class="span8">
+	<div class="span8 show_items">
 		<h3><%= @title %></h3>
 		<% if @users.any? %>
 			<ul class="users">
 				<%= render @users %>
 			</ul>
-		<%= will_paginate %>
+		<%= will_paginate renderer: BootstrapPagination::Rails%>
 		<% end %>
 	</div>
 </div>

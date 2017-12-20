@@ -1,0 +1,30 @@
+<% provide(:title, 'Lessons') %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= gravatar_for @user %>
+      <h1><%= @user.name %></h1>
+      <span><%= link_to "view my profile", @user %></span>
+      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
+    </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="span8 show_items">
+    <h3>Lessons</h3>
+    <% if @lessons.any? %>
+        <table id="courses_list">
+          <tr>
+            <td><strong>代码</strong></td>
+            <td><strong>课程名称</strong></td>
+            <td><strong>考试日期</strong></td>
+            <td><strong>考试时间</strong></td>
+            <td><strong>考试地点</strong></td>
+          </tr>
+          <%= render @lessons %>
+        </table>
+        <%= will_paginate @lessons, renderer: BootstrapPagination::Rails%>
+    <% end %>
+  </div>
+</div>

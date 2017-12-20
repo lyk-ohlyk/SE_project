@@ -4,11 +4,13 @@ class User < ApplicationRecord
 
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
   has_many :followed_users, through: :relationships, source: :followed
-
   has_many :reverse_relationships, foreign_key: 'followed_id',
            class_name: 'Relationship', # 如果没有类名，rails会寻找这个ReverseRelationship类
            dependent: :destroy
-  has_many :followers, through: :reverse_relationships, source: :follower
+  has_many :followers, through: :reverse_relationships, :source => :follower
+
+  has_many :relatecourses, foreign_key: 'learner_id', dependent: :destroy
+  has_many :lessons, :through => :relatecourses, :source => :lesson
 
   #存入数据库之前，把email换成小写的模式
   #作用是防止大小写的重复
@@ -58,6 +60,17 @@ class User < ApplicationRecord
   def unfollow!(other_user)
     relationships.find_by(followed_id: other_user.id).destroy
   end
+
+  def learning?(new_lesson)
+    relatecourses.find_by(lesson_id: new_lesson.id)
+  end
+  def learn!(new_lesson)
+    relatecourses.create!(lesson_id: new_lesson.id)
+  end
+  def unlearn!(new_lesson)
+    relatecourses.find_by(lesson_id: new_lesson.id).destroy
+  end
+
 
   private
     def create_remember_token

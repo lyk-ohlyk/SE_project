@@ -5,8 +5,8 @@ RSpec.describe 'StaticPages', type: :request do
     visit root_path
     click_link 'About'
     expect(page).to have_title('About Us')
-    click_link 'Help'
-    expect(page).to have_title('Help')
+    click_link 'Courses'
+    expect(page).to have_title('Courses')
     click_link 'Contact'
     expect(page).to have_title('Contact')
     #click_link 'Home'
@@ -55,13 +55,25 @@ RSpec.describe 'StaticPages', type: :request do
         it { should have_link("0 following", href: following_user_path(user)) }
         it { should have_link("1 followers", href: followers_user_path(user)) }
       end
-    end
-  end
 
-  describe 'Help page' do
-    before {visit help_path}
-    it {should have_content('Help')}
-    it {should have_title('Help')}
+      describe 'lesson counts' do
+        let(:new_lesson) { FactoryBot.create(:course)}
+        before do
+          user.learn!(new_lesson)
+          visit root_path
+        end
+        it { should have_link('1 lessons', href: lessons_user_path(user))}
+      end
+
+    end
+
+
+  end # home page
+
+  describe 'Courses page' do
+    before {visit courses_path}
+    it {should have_content('Courses')}
+    it {should have_title('Courses')}
   end
 
   describe 'About page' do

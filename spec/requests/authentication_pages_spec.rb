@@ -58,6 +58,7 @@ RSpec.describe "AuthenticationPages", type: :request do
       # 这里的bot只是用来方便进行visit等访问的便利，相当于未登录的用户，
       # 并不是说bot不能访问自己的页面
       describe "in the Users controller" do
+
         describe "visiting the edit page" do
           before { visit edit_user_path(user) }
           it { should have_title('登陆') }
@@ -70,7 +71,21 @@ RSpec.describe "AuthenticationPages", type: :request do
           before { visit users_path }
           it { should have_title('登陆') }
         end
-      end
+
+        describe "visiting the following page" do
+          before { visit following_user_path(user) }
+          it { should have_title('登陆') }
+        end
+        describe "visiting the followers page" do
+          before { visit followers_user_path(user) }
+          it { should have_title('登陆') }
+        end
+
+        describe 'visiting the lessons page' do
+          before { visit lessons_user_path(user) }
+          it { should have_title('登陆')}
+        end
+      end # in the user controller
 
       describe "he should not see profile or settings" do
         before { visit root_path }
@@ -99,6 +114,17 @@ RSpec.describe "AuthenticationPages", type: :request do
         end
         describe "submitting to the destroy action" do
           before { delete relationship_path(1) }
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+      end
+
+      describe 'in the relatecourses controller' do
+        describe 'submitting to the create action' do
+          before { post relatecourses_path }  # 注意，这里的ratelecourse是复数
+          specify { expect(response).to redirect_to(signin_path) }
+        end
+        describe 'submmitting to the destroy action' do
+          before  { delete relatecourse_path(1) }
           specify { expect(response).to redirect_to(signin_path) }
         end
       end

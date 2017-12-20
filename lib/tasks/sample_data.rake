@@ -46,6 +46,13 @@ def make_relationships
   user = users.first
   followed_users = users[2..50]
   followers = users[3..40]
-  followed_users.each { |followed| user.follow!(followed) }
+  followed_users.each { |followed| user.follow!(followed)}
   followers.each { |follower| follower.follow!(user) }
+end
+
+def make_relatecourses
+  learner = User.first
+  courses = Course.all
+  lessons = courses[1..30]
+  lessons.each {|lesson| learner.learn!(lesson)}
 end

@@ -105,14 +105,6 @@ RSpec.describe 'UserPages', type: :request do
     end
   end
 
-  # describe 'search classes' do
-  #   before {visit search_path}
-  #   describe 'with information' do
-  #     it { should have_title('课程信息') }
-  #     it { should have_content('考试时间') }
-  #   end
-  # end
-
   describe "edit" do
     let(:user) { FactoryBot.create(:user) }
     before do
@@ -240,6 +232,58 @@ RSpec.describe 'UserPages', type: :request do
       it { should have_selector('h3', text: 'Followers') }
       it { should have_link(user.name, href: user_path(user)) }
     end
+  end
+
+  describe 'viewing his lesson' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:new_lesson) { FactoryBot.create(:course) }
+    before { user.learn!(new_lesson) }
+    describe 'learner' do
+      before do
+        sign_in user
+        visit lessons_user_path(user)
+      end
+      it { should have_title('Lessons')}
+      it { should have_selector('h3', text: 'Lessons') }
+      it { should have_link('详情', href: course_path(new_lesson)) }
+    end
+  end
+
+  describe 'learning/unlearning a new lesson via click' do
+    let(:user) { FactoryBot.create(:user) }
+    let(:new_lesson) { FactoryBot.create(:course) }
+    before { sign_in user }
+
+    describe 'learning a lesson' do
+      before { visit course_path(new_lesson) }
+      it 'should increment the learning lessons count' do
+        expect do
+          click_button 'Add'
+        end.to change(user.lessons, :count).by(1)
+      end
+      describe 'toggling the button' do
+        before { click_button "Add" }
+        it { should have_xpath("//input[@value='Remove']") }
+      end
+    end
+
+    describe 'unlearning a lesson' do
+      before do
+        user.learn!(new_lesson)
+        visit course_path(new_lesson)
+      end
+      it 'should decrement the learning lesson count' do
+        expect do
+          click_button 'Remove'
+        end.to change(user.lessons, :count).by(-1)
+      end
+      describe 'toggling the button' do
+        before { click_button 'Remove' }
+        it { should have_xpath("//input[@value='Add']") }
+      end
+
+    end
+
   end
 
 end

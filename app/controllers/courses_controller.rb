@@ -3,12 +3,14 @@ class CoursesController < ApplicationController
   end
 
   def index
-    @course = Course.all
+    @courses = Course.all
   end
   
   def show
     @course = Course.find(params[:id])
   end
+
+
 
   def search
     #@course = Course.find_by_course_code('075M4002H')

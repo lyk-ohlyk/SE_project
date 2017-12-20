@@ -145,6 +145,10 @@ aside {
       margin-bottom: 3px;
       margin-top: 0px;
     }
+    .btn{
+      width: 300px;
+      margin-top: 30px;
+    }
   }
 }
 //gravatar 在users_helper中定义
@@ -276,14 +280,27 @@ aside {
     margin-bottom: 5px;
   }
 }
-.microposts_feed{
+
+.show_items{
   h3 {
     margin-top: 0px;
   }
   padding-left: 40px;
-  width: 50%;
+  width: 65%;
   ol{
     padding: 0px;
   }
   float: left;
+}
+
+/* courses */
+#courses_list{
+  table-layout:fixed;
+  empty-cells:show;
+  border-collapse: collapse;
+  margin:0 auto;
+  td{
+    padding-right: 10px;
+    height:20px;
+  }
 }
