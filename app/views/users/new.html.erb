@@ -12,13 +12,13 @@
         <%= f.label :email, '邮箱' %>
         <%= f.text_field :email %>
 
-        <%= f.label :password, '密码' %>
+        <%= f.label :password, '密码' %> （至少6位）
         <%= f.password_field :password %>
 
         <%= f.label :password_confirmation, '请确认密码' %>
         <%= f.password_field :password_confirmation %>
 
-        <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
+        <%= f.submit '注册', class: "btn btn-large btn-primary" %>
     <% end %>
   </div>
 </div>
