@@ -22,7 +22,7 @@ RSpec.describe "AuthenticationPages", type: :request do
       it { should have_selector('div.alert.alert-error', text: '无效的') }
 
       describe "after visiting another page" do
-        before { click_link "Home" }
+        before { click_link "主页" }
         it { should_not have_selector('div.alert.alert-error') }
       end
 
@@ -37,14 +37,14 @@ RSpec.describe "AuthenticationPages", type: :request do
       # before { valid_signin(user) }
 
       it { should have_title(user.name) }
-      it { should have_link('Users', href: users_path) }
-      it { should have_link('Profile', href: user_path(user)) }
-      it { should have_link('Sign out', href: signout_path) }
-      it { should have_link('Settings', href: edit_user_path(user)) }
+      it { should have_link('用户', href: users_path) }
+      it { should have_link('个人主页', href: user_path(user)) }
+      it { should have_link('退出', href: signout_path) }
+      it { should have_link('修改信息', href: edit_user_path(user)) }
       it { should_not have_link('登陆', href: signin_path) }
 
       describe "followed by signout" do
-        before { click_link "Sign out" }
+        before { click_link "退出" }
         it { should have_link('登陆') }
       end
     end
@@ -96,8 +96,8 @@ RSpec.describe "AuthenticationPages", type: :request do
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
-          fill_in "Email", with: user.email
-          fill_in "Password", with: user.password
+          fill_in '邮箱', with: user.email
+          fill_in '密码', with: user.password
           click_button '登陆'
         end
         describe "after signing in" do

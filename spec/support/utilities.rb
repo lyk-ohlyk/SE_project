@@ -14,8 +14,8 @@ def full_title(page_title)
 end
 
 def valid_signin(user)
-  fill_in "Email", with: user.email.upcase
-  fill_in "Password", with: user.password
+  fill_in '邮箱', with: user.email.upcase
+  fill_in '密码', with: user.password
   click_button '登陆'
 end
 
@@ -33,8 +33,8 @@ def sign_in(user, options={})
     user.update_attribute(:remember_token, User.encrypt(remember_token))
   else
     visit signin_path
-    fill_in "Email", with: user.email.upcase
-    fill_in "Password", with: user.password
+    fill_in '邮箱', with: user.email.upcase
+    fill_in '密码', with: user.password
     click_button '登陆'
   end
 end

@@ -13,8 +13,8 @@ Given /^the user has an account$/ do
                       password: "foobar", password_confirmation: "foobar")
 end
 When /^the user submits valid signin information$/ do
-  fill_in "Email", with: @user.email
-  fill_in "Password", with: @user.password
+  fill_in '邮箱', with: @user.email
+  fill_in '密码', with: @user.password
   click_button '登陆'
 end
 Then /^he should see his profile page$/ do

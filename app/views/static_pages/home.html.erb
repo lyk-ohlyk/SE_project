@@ -14,21 +14,21 @@
         </section>
       </aside>
       <div class="span8 show_items">
-        <h3>Micropost Feed</h3>
+        <h3>最近微博</h3>
         <%= render 'shared/feed' %>
       </div>
     </div>
 
 <% else %>
   <div class="center hero-unit">
-    <h1>Welcome to the Moyu</h1>
+    <h1>欢迎来到Moyu！</h1>
     <h2>
-      This is not the home page for the
-      <a href="http://railstutorial.org/" target="_blank">Ruby on Rails Tutorial</a>
-      sample application.
+      你可以在这里关注用户、发布微博并且查看课程考试的相关信息。<br  ><br  >
+      <%= link_to '登陆', signin_path %>或<%= link_to '注册', signup_path %>以获得更多的服务! <br  ><br>
+      如果你有新的意见或建议，请<%= link_to "联系我们", contact_path %>!
     </h2>
     <!--%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %-->
-    <%= link_to "Find course now!", index_path, class: "btn btn-large btn-primary" %>
+    <%= link_to "查看考试信息", index_path, class: "btn btn-large btn-primary" %>
   </div>
 
 <% end %>

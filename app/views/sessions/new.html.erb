@@ -4,12 +4,12 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(:session, url: sessions_path) do |f| %>
-      <%= f.label :email %>
+      <%= f.label :email, '邮箱' %>
       <%= f.text_field :email %>
-      <%= f.label :password %>
+      <%= f.label :password, '密码' %>
       <%= f.password_field :password %>
       <%= f.submit '登陆', class: "btn btn-large btn-primary" %>
     <% end %>
-    <p>New user? <%= link_to "Sign up now!", signup_path %></p>
+    <p>新的用户？ <%= link_to '现在注册！', signup_path %></p>
   </div>
 </div>

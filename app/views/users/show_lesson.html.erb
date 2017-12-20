@@ -1,18 +1,18 @@
-<% provide(:title, 'Lessons') %>
+<% provide(:title, '我的课程') %>
 <div class="row">
   <aside class="span4">
     <section>
       <%= gravatar_for @user %>
       <h1><%= @user.name %></h1>
-      <span><%= link_to "view my profile", @user %></span>
-      <span><b>Microposts:</b> <%= @user.microposts.count %></span>
+      <span><%= link_to '个人主页', @user %></span>
+      <span><b>微博数:</b> <%= @user.microposts.count %></span>
     </section>
     <section>
       <%= render 'shared/stats' %>
     </section>
   </aside>
   <div class="span8 show_items">
-    <h3>Lessons</h3>
+    <h3>已有课程</h3>
     <% if @lessons.any? %>
         <table id="courses_list">
           <tr>

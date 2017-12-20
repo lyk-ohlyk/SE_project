@@ -107,7 +107,8 @@ class UsersController < ApplicationController
     end
 
     def search(student_id, pwd)
-      #@student_id = '444896219@qq.com'
+      # @student_id = '444896219@qq.com'
+      # pwd = ????
       @course_codes = get_classes student_id,pwd
       # if @course_codes.nil?
       #   flash.now[:error] = '无效的账号/密码组合'  #需要改error页面，只有user

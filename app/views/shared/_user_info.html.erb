@@ -5,8 +5,8 @@
   <%= current_user.name %>
 </h1>
 <span>
-<%= link_to "view my profile", current_user %>
+  <%= link_to '个人主页', current_user %>
 </span>
 <span>
-<%= pluralize(current_user.microposts.count, "micropost") %>
+  <%= pluralize(current_user.microposts.count, "micropost") %>
 </span>

@@ -5,8 +5,8 @@ RSpec.describe 'UserPages', type: :request do
 
   describe 'signup page' do
     before { visit signup_path }
-    it { should have_content('Sign up') }
-    it { should have_title('Sign up') }
+    it { should have_content('注册') }
+    it { should have_title('注册') }
   end
 
   describe 'profile page' do
@@ -83,11 +83,11 @@ RSpec.describe 'UserPages', type: :request do
     end
     describe 'with valid information' do
       before do
-        fill_in 'Name', with: 'Example User'
-        fill_in 'Email', with: 'user@example.com'
+        fill_in '用户名', with: 'Example User'
+        fill_in '邮箱', with: 'user@example.com'
         fill_in '学号', with: '201728001007000'
-        fill_in 'Password', with: 'foobar'
-        fill_in 'Confirmation', with: 'foobar'
+        fill_in '密码', with: 'foobar'
+        fill_in '请确认密码', with: 'foobar'
       end
       it 'should create a user' do
         expect { click_button submit }.to change(User, :count).by(1)
@@ -97,7 +97,7 @@ RSpec.describe 'UserPages', type: :request do
         before { click_button submit }
         let(:user) { User.find_by(email: 'user@example.com') }
 
-        it { should have_link('Sign out')}
+        it { should have_link('退出')}
         it { should have_title(user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
@@ -123,13 +123,13 @@ RSpec.describe 'UserPages', type: :request do
     # end
 
     describe "page" do
-      it { should have_content("Update your profile") }
+      it { should have_content("修改信息") }
       it { should have_title("Edit user") }
-      it { should have_link('change', href: 'http://gravatar.com/emails') }
+      it { should have_link('修改头像', href: 'http://gravatar.com/emails') }
     end
 
     describe "with invalid information" do
-      before { click_button "Save changes" }
+      before { click_button "保存" }
       it { should have_content('error') }
     end
 
@@ -137,15 +137,15 @@ RSpec.describe 'UserPages', type: :request do
       let(:new_name) { "New Name" }
       let(:new_email) { "new@example.com" }
       before do
-        fill_in "Name", with: new_name
-        fill_in "Email", with: new_email
-        fill_in "Password", with: user.password
-        fill_in "Confirm Password", with: user.password
-        click_button "Save changes"
+        fill_in '用户名', with: new_name
+        fill_in "邮箱", with: new_email
+        fill_in "密码", with: user.password
+        fill_in "请确认密码", with: user.password
+        click_button "保存"
       end
       it { should have_title(new_name) }
       it { should have_selector('div.alert.alert-success') }
-      it { should have_link('Sign out', href: signout_path) }
+      it { should have_link('退出', href: signout_path) }
       specify { expect(user.reload.name).to eq new_name }
       specify { expect(user.reload.email).to eq new_email }
     end
@@ -165,8 +165,8 @@ RSpec.describe 'UserPages', type: :request do
       visit users_path
     end
 
-    it { should have_title('All users') }
-    it { should have_content('All users') }
+    it { should have_title('用户') }
+    it { should have_content('所有用户') }
 
     describe "pagination" do
 
@@ -243,8 +243,8 @@ RSpec.describe 'UserPages', type: :request do
         sign_in user
         visit lessons_user_path(user)
       end
-      it { should have_title('Lessons')}
-      it { should have_selector('h3', text: 'Lessons') }
+      it { should have_title('我的课程')}
+      it { should have_selector('h3', text: '课程') }
       it { should have_link('详情', href: course_path(new_lesson)) }
     end
   end

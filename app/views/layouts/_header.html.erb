@@ -4,20 +4,20 @@
       <%= link_to 'Course', home_path, id: 'logo' %>
       <nav>
         <ul class='nav', id="header">
-          <li><%= link_to 'Home', home_path %></li>
+          <li><%= link_to '主页', home_path %></li>
           <li><%= link_to 'Courses', courses_path %></li>
           <% if signed_in? %>
-            <li><%= link_to "Users", users_path %></li>
+            <li><%= link_to '用户', users_path %></li>
             <li id="fat-menu" class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
+                账户 <b class="caret"></b>
               </a>
               <ul class="dropdown-menu" id="dropdown">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+                <li><%= link_to "个人主页", current_user %></li>
+                <li><%= link_to "修改信息", edit_user_path(current_user) %></li>
                 <li class="divider"></li>
                 <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
+                  <%= link_to "退出", signout_path, method: "delete" %>
                 </li>
               </ul>
             </li>
