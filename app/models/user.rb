@@ -33,8 +33,8 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: {case_sensitive: false}
 
-  validates :student_id, presence: true,
-            length: {is: 15}
+  # validates :student_id, presence: true,
+  #           length: {is: 15}
 
   has_secure_password
   validates :password, length: { minimum: 6 }

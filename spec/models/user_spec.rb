@@ -5,14 +5,14 @@ RSpec.describe User, type: :model do
     @user = User.new(name: 'lily',
                      email: 'gsgfdsgfg@gmail.com',
                      password: 'foobar',
-                     password_confirmation: 'foobar',
-                     student_id: '201728001007002')
+                     password_confirmation: 'foobar')
+                     # student_id: '201728001007002')
   end
 
   subject { @user }
   it { should respond_to(:name) }
   it { should respond_to(:email) }
-  it { should respond_to(:student_id)}
+  # it { should respond_to(:student_id)}
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
@@ -71,14 +71,14 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe 'when student ID is too short' do
-    before { @user.student_id = '01234012340123'}
-    it {should_not be_valid}
-  end
-  describe 'when student ID is too long' do
-    before { @user.student_id = '0123401234012340'}
-    it {should_not be_valid}
-  end
+  # describe 'when student ID is too short' do
+  #   before { @user.student_id = '01234012340123'}
+  #   it {should_not be_valid}
+  # end
+  # describe 'when student ID is too long' do
+  #   before { @user.student_id = '0123401234012340'}
+  #   it {should_not be_valid}
+  # end
 
   describe "when password doesn't match confirmation" do
     before { @user.password_confirmation = 'mismatch' }
