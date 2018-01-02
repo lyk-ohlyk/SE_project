@@ -290,6 +290,7 @@ DEPENDENCIES
   guard-rspec
   jbuilder (~> 2.5)
   jquery-rails
+  nokogiri
   pg
   puma (~> 3.7)
   rails (~> 5.1.4)
