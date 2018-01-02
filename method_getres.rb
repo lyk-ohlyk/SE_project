@@ -17,7 +17,7 @@ class MYHTTP
     uri =  URI.parse(@login)
     params = {}
     params['userName'] = '444896219@qq.com'
-    params['pwd'] = 'not my password'
+    params['pwd'] = '362136199506250010'
     params['sb'] = 'sb'
     res = Net::HTTP.post_form(uri , params)
     #puts "logining header:\n#{res.to_hash.inspect}"
