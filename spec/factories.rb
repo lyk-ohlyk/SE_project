@@ -1,4 +1,10 @@
 # FactoryBot.define do
+#   factory :assignment do
+#     title "MyString"
+#     deadline "MyString"
+#     state "MyString"
+#     score "MyString"
+#   end
 #   factory :relatecourse do
 #     learner_id 1
 #     lesson_id 1
@@ -21,6 +27,13 @@
 # end
 
 FactoryBot.define do
+  factory :assignment do
+    title "第二次作业"
+    deadline "2017-01-34"
+    state "finished"
+    score "A+++"
+    course
+  end
   factory :relatecourse do
     learner_id 1
     lesson_id 1

@@ -85,7 +85,6 @@ RSpec.describe 'UserPages', type: :request do
       before do
         fill_in '用户名', with: 'Example User'
         fill_in '邮箱', with: 'user@example.com'
-        # fill_in '学号', with: '201728001007000'
         fill_in '密码', with: 'foobar'
         fill_in '请确认密码', with: 'foobar'
       end

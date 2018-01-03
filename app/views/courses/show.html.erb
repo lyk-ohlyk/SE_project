@@ -19,5 +19,12 @@
       <li>考试时间:  <%= @course.exam_hour %></li>
       <li>考试地点:  <%= @course.exam_place %></li>
     </ul>
+
+    <% if @course.assignments.any? %>
+        <h3>Assignments (<%= @course.assignments.count %>)</h3>
+        <ol class="assignments">
+          <%= render @assignments %>
+        </ol>
+    <% end %>
   </div>
 </div>

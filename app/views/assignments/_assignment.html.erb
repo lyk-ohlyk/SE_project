@@ -1,0 +1,9 @@
+<li>
+  <span class="title"><%= assignment.title %></span>
+  <span class="deadline"><%= assignment.deadline %></span>
+  <span class="state"><%= assignment.state %></span>
+  <span class="score"><%= assignment.score %></span>
+  <span class="timestamp">
+    Published <%= time_ago_in_words(assignment.created_at) %> ago.
+  </span>
+</li>

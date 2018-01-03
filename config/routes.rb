@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   #match '/search', to: 'courses#search', via: 'post'
   match '/index', to:'courses#index', via: 'get'
 
-
+  match '/updateass', to: 'courses#update_assignments', via: 'get'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
 
