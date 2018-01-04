@@ -17,7 +17,6 @@ class MYHTTP
     uri =  URI.parse(@login)
     params = {}
     params['userName'] = '444896219@qq.com'
-    params['pwd'] = '360734199506250010'
     params['sb'] = 'sb'
     res = Net::HTTP.post_form(uri , params)
     @cookie = res.header['set-cookie'].split('; ')
