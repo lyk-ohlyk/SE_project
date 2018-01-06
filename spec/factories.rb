@@ -68,6 +68,7 @@ FactoryBot.define do
     course_name 'test2'
     course_time 'test3'
     score 'test4'
+    site_id '123456'
     exam_date 'test5'
     exam_hour 'test6'
     exam_place 'test7'

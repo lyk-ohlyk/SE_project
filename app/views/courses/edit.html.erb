@@ -1,0 +1,14 @@
+<% provide(:title, '修改课程信息') %>
+<h1>修改课程信息</h1>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@course) do |f| %>
+        <%= render 'shared/error_messages', object: f.object %>
+        <%= f.label :course_name, '课程名称' %>
+        <%= f.text_field :course_name %>
+        <%= f.label :site_id, '课程网站'%>
+        <%= f.text_field :site_id %>
+        <%= f.submit '保存', class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>

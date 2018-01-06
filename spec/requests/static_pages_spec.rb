@@ -6,8 +6,6 @@ RSpec.describe 'StaticPages', type: :request do
     visit root_path
     click_link 'About'
     expect(page).to have_title('About')
-    click_link 'Courses'
-    expect(page).to have_title('Courses')
     click_link '联系我们'
     expect(page).to have_title('联系我们')
     #click_link 'Home'
@@ -86,12 +84,6 @@ RSpec.describe 'StaticPages', type: :request do
     end # for signed_in users
 
   end # home page
-
-  describe 'Courses page' do
-    before {visit courses_path}
-    it {should have_content('Courses')}
-    it {should have_title('Courses')}
-  end
 
   describe 'About page' do
     before {visit about_path}

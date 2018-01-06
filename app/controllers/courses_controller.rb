@@ -1,6 +1,9 @@
 require 'nokogiri'
 
 class CoursesController < ApplicationController
+  before_action :signed_in_user, only: :edit
+  before_action :admin_user, only: :edit
+
   def new
   end
 
@@ -13,7 +16,18 @@ class CoursesController < ApplicationController
     @assignments = @course.assignments
   end
 
-
+  def edit
+    @course = Course.find(params[:id])
+  end
+  def update
+    @course = Course.find(params[:id])
+    if @course.update_attributes(course_params)
+      flash[:success] = "课程已更新"
+      redirect_to @course
+    else
+      render 'edit'
+    end
+  end
 
   def search
     #@course = Course.find_by_course_code('075M4002H')
@@ -25,7 +39,7 @@ class CoursesController < ApplicationController
     site_ids = []
     courses = Course.all
     courses.each do |c|
-      if c.site_id != nil
+      if c.site_id && c.site_id.size == 6
         site_ids.push(c.site_id)
       end
     end
@@ -33,8 +47,8 @@ class CoursesController < ApplicationController
     sample = ApplicationHelper::MYHTTP.new("http://sep.ucas.ac.cn/slogin")
     sample.enter_course_site
     site_ids.each do |site_id|
+      puts "############{site_id}"
       course_with_site_id = Course.find_by_site_id(site_id)
-
       site_content = sample.get("http://course.ucas.ac.cn/portal/site/" + site_id).body
       /grades" href="(.*)"/ =~ site_content
       assignment_site_route = $1
@@ -75,6 +89,13 @@ class CoursesController < ApplicationController
   end
 
 
+  def admin_user
+    redirect_to(root_path) unless current_user.admin?
+    end
 
+  private
+  def course_params
+    params.require(:course).permit(:course_name, :site_id)
+  end
 
 end

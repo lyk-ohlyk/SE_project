@@ -29,6 +29,7 @@ class MYHTTP
   end
 
   def get(url)
+    puts "connecting #{url}"
     login unless @cookie
     uri = URI.parse(url)
     http = Net::HTTP.new(uri.host , uri.port)
@@ -42,6 +43,7 @@ class MYHTTP
     if location
       warn "redirected :#{res['location']}\n"
     end
+    puts res
     res
   end
   def get_with_params(url)

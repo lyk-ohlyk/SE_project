@@ -16,7 +16,6 @@ end
 def make_users
   User.create!(name: "Example User",
                email: "example@railstutorial.org",
-               student_id:"132413241234123",
                password: "foobar",
                password_confirmation: "foobar",
                admin: true)
@@ -24,10 +23,8 @@ def make_users
     name = Faker::Name.name
     email = "example-#{n+1}@railstutorial.org"
     password = "password"
-    student_id = "132413241234123"
     User.create!(name: name,
                  email: email,
-                 student_id: student_id,
                  password: password,
                  password_confirmation: password)
   end

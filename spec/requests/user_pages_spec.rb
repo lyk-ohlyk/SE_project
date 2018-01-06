@@ -73,6 +73,7 @@ RSpec.describe 'UserPages', type: :request do
 
     describe 'search assignments link' do
       before do
+
         sign_in user
         visit home_path
       end
