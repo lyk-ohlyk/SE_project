@@ -5,7 +5,7 @@
   <td><%= course.exam_hour %></td>
   <td><%= course.exam_place %></td>
   <td><%= link_to '详情', course %></td>
-  <% if current_user.admin? %>
+  <% if current_user&.admin? %>
       <td> <%= link_to '修改', edit_course_path(course) %> </td>
   <% end %>
 </tr>

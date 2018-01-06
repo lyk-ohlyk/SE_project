@@ -85,6 +85,12 @@ RSpec.describe 'StaticPages', type: :request do
 
   end # home page
 
+  describe 'Courses page' do
+    before {visit courses_path}
+    it {should have_content('Courses')}
+    it {should have_title('Courses')}
+  end
+
   describe 'About page' do
     before {visit about_path}
     it {should  have_content('About Us')}
