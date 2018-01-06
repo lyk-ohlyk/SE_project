@@ -66,8 +66,24 @@ RSpec.describe 'StaticPages', type: :request do
         it { should have_link('1 lessons', href: lessons_user_path(user))}
       end
 
-    end
+      describe 'recent homework' do
+        let(:course) {FactoryBot.create(:course)}
+        let(:ass) { FactoryBot.create(:assignment, course: course) }
+        before do
+          user.learn!(course)
+          visit root_path
+        end
+        it "should render the course's assignments" do
+          # course.assignments do |item|
+          user.assignments_of_lessons.each do |item|
+            expect(page).to have_selector("li##{item.id}", text: item.title)
+          end
+          # end
+        end
 
+      end
+
+    end # for signed_in users
 
   end # home page
 

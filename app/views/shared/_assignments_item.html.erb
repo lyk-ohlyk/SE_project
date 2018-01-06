@@ -1,0 +1,10 @@
+<li id="<%= assignments_item.id %>">
+  <ul>
+    <li><%= assignments_item.title %></li>
+    <li><%= assignments_item.deadline %></li>
+    <li><%= assignments_item.state %></li>
+    <span class="timestamp">
+      发布于 <%= time_ago_in_words(assignments_item.created_at) %> ago.
+    </span>
+  </ul>
+</li>

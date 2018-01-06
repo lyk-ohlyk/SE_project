@@ -1,0 +1,7 @@
+<% @user ||= current_user %>
+<% if @feed_assignments.any? %>
+    <ol class="all_assignments">
+      <%= render partial: 'shared/assignments_item', collection: @feed_assignments %>
+    </ol>
+    <%= will_paginate @feed_assignments, renderer: BootstrapPagination::Rails %>
+<% end %>

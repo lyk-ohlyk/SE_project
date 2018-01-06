@@ -12,11 +12,19 @@
         <section>
           <%= render 'shared/micropost_form' %>
         </section>
+        <section>
+          <%= render 'shared/assignments' %>
+        </section>
+        <% if current_user.admin? %>
+            | <%= link_to '更新作业', updateass_path, data: { confirm: "You sure?" } %>
+        <% end %>
       </aside>
       <div class="span8 show_items">
         <h3>最近微博</h3>
         <%= render 'shared/feed' %>
       </div>
+
+
     </div>
 
 <% else %>

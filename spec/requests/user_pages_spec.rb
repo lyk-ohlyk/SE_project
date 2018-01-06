@@ -69,8 +69,24 @@ RSpec.describe 'UserPages', type: :request do
           it { should have_xpath("//input[@value='Follow']") }
         end
       end # unfollowing a user
-
     end # follow/unfollow
+
+    describe 'search assignments link' do
+      before do
+        sign_in user
+        visit home_path
+      end
+      it{ should_not have_link('更新作业')}
+      describe 'as an admin user' do
+        let(:admin) { FactoryBot.create(:admin) }
+        before do
+          sign_in admin
+          visit home_path
+        end
+        it { should have_link('更新作业')}
+      end
+    end
+
   end #profile page
 
   describe 'signup' do

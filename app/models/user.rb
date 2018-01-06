@@ -50,6 +50,10 @@ class User < ApplicationRecord
 # This is preliminary. See "Following users" for the full implementation.
     Micropost.from_users_followed_by(self)
   end
+  def assignments_of_lessons
+    Assignment.from_courses_learned_by(self)
+  end
+
 
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)
