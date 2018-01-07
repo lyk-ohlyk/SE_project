@@ -88,7 +88,7 @@ class MYHTTP
     portal_1 = get_portal1(body)
     if portal_1.nil?
       puts '无法登陆课程网站'
-      return
+      return false
     end
     portal_2 = get_portal2(portal_1)
     res_p2 = get_with_params(portal_2)
@@ -97,6 +97,7 @@ class MYHTTP
     portal_sakai = "http://course.ucas.ac.cn/portal?sakai.session="+ params['sessionId'] +"&_mid=" + params['_mid'] + "&fromUrl="
     res_portal_sakai = get_with_params(portal_sakai)
     set_cookie(res_portal_sakai['set-cookie'])
+    true
   end
 
 end
