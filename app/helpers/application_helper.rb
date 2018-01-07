@@ -85,6 +85,7 @@ class MYHTTP
   def enter_course_site
     @login = "http://sep.ucas.ac.cn/slogin"
     body = get("http://sep.ucas.ac.cn/portal/site/16/801").body
+    puts body
     portal_1 = get_portal1(body)
     if portal_1.nil?
       puts '无法登陆课程网站'
