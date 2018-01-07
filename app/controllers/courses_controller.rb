@@ -45,7 +45,12 @@ class CoursesController < ApplicationController
     end
 
     sample = ApplicationHelper::MYHTTP.new("http://sep.ucas.ac.cn/slogin")
-    return false unless sample.enter_course_site
+
+    unless sample.enter_course_site
+        redirect_to root_path
+        return false
+    end
+
     site_ids.each do |site_id|
       puts "############{site_id}"
       course_with_site_id = Course.find_by_site_id(site_id)
