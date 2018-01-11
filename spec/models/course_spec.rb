@@ -15,6 +15,8 @@ RSpec.describe Course, type: :model do
   it { should respond_to(:site_id) }
   it { should respond_to(:assignments) }
 
+  it { should respond_to(:comments)}
+
   describe 'assignments associations' do
     before { @course.save }
     let!(:older_assignment) do

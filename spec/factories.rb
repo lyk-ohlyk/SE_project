@@ -1,32 +1,10 @@
-# FactoryBot.define do
-#   factory :assignment do
-#     title "MyString"
-#     deadline "MyString"
-#     state "MyString"
-#     score "MyString"
-#   end
-#   factory :relatecourse do
-#     learner_id 1
-#     lesson_id 1
-#   end
-#   factory :relationship do
-#     follower_id 1
-#     followed_id 1
-#   end
-#   factory :micropost do
-#     content "MyString"
-#     user_id 1
-#   end
-#   factory :user do
-#     name 'Michael Hartl'
-#     email 'michael@example.com'
-#     student_id '201728001007000'
-#     password 'foobar'
-#     password_confirmation 'foobar'
-#   end
-# end
-
 FactoryBot.define do
+
+  factory :comment do
+    content '再不布置作业要死了'
+    user
+    course
+  end
   factory :assignment do
     title "第二次作业"
     deadline "2017-01-34"

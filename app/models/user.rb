@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :relatecourses, foreign_key: 'learner_id', dependent: :destroy
   has_many :lessons, :through => :relatecourses, :source => :lesson
 
+  has_many :comments
   #存入数据库之前，把email换成小写的模式
   #作用是防止大小写的重复
   #before_save { self.email = email.downcase }

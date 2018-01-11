@@ -36,6 +36,8 @@ RSpec.describe User, type: :model do
   it { should respond_to(:learning?) }
   it { should respond_to(:learn!) }
 
+  it { should respond_to(:comments)}
+
   it { should be_valid }
   it { should_not be_admin }
 
