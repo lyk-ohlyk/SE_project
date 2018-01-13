@@ -8,6 +8,9 @@ RSpec.describe 'CoursePages', type: :request do
     let!(:c1) { FactoryBot.create(:assignment, course: course, title: 'Foo') }
     let!(:c2) { FactoryBot.create(:assignment, course: course, title: 'Bar') }
 
+    let(:user) { FactoryBot.create(:user) }
+    let!(:comment) {FactoryBot.create(:comment, user:user, course: course, content: 'love this course')}
+
     before { visit course_path(course) }
     it { should have_content(course.course_name) }
     it { should have_title(course.course_name) }
@@ -16,7 +19,26 @@ RSpec.describe 'CoursePages', type: :request do
       it { should have_content(c2.title) }
       it { should have_content(course.assignments.count) }
     end
+
+    describe 'comments' do
+      it{ should have_content(comment.content) }
+    end
+
+  end # infomation page
+
+  describe 'when user comments this course' do
+    let(:user) { FactoryBot.create(:user) }
+    before do
+      sign_in user
+      visit course_path(course)
+    end
+
+    describe 'there should be comment form' do
+
+    end
+
   end
+
 
   describe 'edit course' do
     let(:user) { FactoryBot.create(:user) }

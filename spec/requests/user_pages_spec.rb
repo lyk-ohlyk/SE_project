@@ -14,6 +14,9 @@ RSpec.describe 'UserPages', type: :request do
     let!(:m1) { FactoryBot.create(:micropost, user: user, content: "Foo") }
     let!(:m2) { FactoryBot.create(:micropost, user: user, content: "Bar") }
 
+    let!(:course) { FactoryBot.create(:course)}
+    let!(:comment) {FactoryBot.create(:comment, user:user, course: course, content: 'love this course')}
+
     before { visit user_path(user) }
     it { should have_content(user.name) }
     it { should have_title(user.name) }
@@ -22,6 +25,10 @@ RSpec.describe 'UserPages', type: :request do
       it { should have_content(m1.content) }
       it { should have_content(m2.content) }
       it { should have_content(user.microposts.count) }
+    end
+
+    describe 'Comments' do
+      it { should have_content(comment.content)}
     end
 
     describe "follow/unfollow buttons" do

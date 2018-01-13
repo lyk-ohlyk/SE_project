@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
   resources :relatecourses, only: [:create, :destroy]
+  resources :comments, only: [:create, :destroy]
   # get 'users/index', to: 'user#new', via: 'get'
 
   root to: 'static_pages#home'

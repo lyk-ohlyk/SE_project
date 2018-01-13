@@ -10,6 +10,8 @@ namespace :db do
     make_users
     make_microposts
     make_relationships
+    make_relatecourses
+    make_comments
   end
 end
 
@@ -52,4 +54,13 @@ def make_relatecourses
   courses = Course.all
   lessons = courses[1..30]
   lessons.each {|lesson| learner.learn!(lesson)}
+end
+
+def make_comments
+  users = User.all.limit(6)
+  course = Course.first
+  50.times do
+    content = Faker::Lorem.sentence(5)
+    users.each { |user| user.comments.create!(course: course ,content: content) }
+  end
 end

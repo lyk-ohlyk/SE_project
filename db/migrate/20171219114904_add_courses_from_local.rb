@@ -9,6 +9,7 @@ class AddCoursesFromLocal < ActiveRecord::Migration[5.1]
     @exam_date = [""]
     @exam_hour = [""]
     @exam_place = [""]
+    # @site_id = ['']
     @feature_size = 8
   end
   def get_exam(i)
@@ -55,6 +56,6 @@ end
         i += 1
       end
     end
-    puts 'done for migrate courses'
+    puts 'done for migrating courses'
   end
 end
