@@ -8,14 +8,35 @@
 刘炎堃，github: [lyk-ohlyk](https://github.com/lyk-ohlyk)  
 刘鹏坤，github: [liupengkun](https://github.com/liupengkun)  
 
+## 关于该文档
+This document was ...
 
-## 项目介绍
-This document was inspired by [Dark Souls II and Scholar of the First Sin Cheat Engine Guide](https://gist.github.com/Atvaark/f308e1d8e00e07106452) from [Atvaark](https://github.com/Atvaark).  
+## 目录
+* [项目介绍](https://github.com/lyk-ohlyk/SE_project#%E9%A1%B9%E7%9B%AE%E4%BB%8B%E7%BB%8D)  
+  * [项目的意义]()  
+  * [项目的目标]()  
 
-Feel free to visit the general Dark Souls 3 Cheat Engine Discord [The Grand Archives](https://discord.gg/NmKfgwt).  
 
-## General
-### Cheat Engine
-We recommend you to use [Cheat Engine 6.6](https://github.com/cheat-engine/cheat-engine/releases/tag/6.6) for the latest table.
 
-#### Public tables:  
+## 1. 项目介绍
+### 项目的意义
+
+### 项目的目标
+
+## 2.项目的技术和实施方案
+### 技术
+#### 版本控制工具
+#### 协作开发工具
+#### 数据库
+
+
+### 实施的方案
+#### 应用框架
+#### 运行环境
+
+## 3. 项目具体设计
+#### User Stories
+#### TDD test cases
+#### balabala
+
+
