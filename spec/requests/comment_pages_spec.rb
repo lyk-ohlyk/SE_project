@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "CommentPages", type: :request do
   subject { page }
   let(:user) { FactoryBot.create(:user) }
-  let(:course) { FactoryBot.create(:user) }
+  let(:course) { FactoryBot.create(:course) }
   before { sign_in user }
 
   describe "comment creation" do

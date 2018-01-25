@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   # has_many :courses
+
   has_many :microposts, dependent: :destroy
 
   has_many :relationships, foreign_key: 'follower_id', dependent: :destroy
@@ -54,7 +55,6 @@ class User < ApplicationRecord
   def assignments_of_lessons
     Assignment.from_courses_learned_by(self)
   end
-
 
   def following?(other_user)
     relationships.find_by(followed_id: other_user.id)

@@ -9,7 +9,7 @@ RSpec.describe 'CoursePages', type: :request do
     let!(:c2) { FactoryBot.create(:assignment, course: course, title: 'Bar') }
 
     let(:user) { FactoryBot.create(:user) }
-    let!(:comment) {FactoryBot.create(:comment, user:user, course: course, content: 'love this course')}
+    let!(:comment) {FactoryBot.create(:comment, user: user, course: course, content: 'love this course')}
 
     before { visit course_path(course) }
     it { should have_content(course.course_name) }

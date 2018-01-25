@@ -3,7 +3,7 @@ class CommentsController < ApplicationController
   before_action :find_course!
 
   def create
-    @comment = @course.comments.new(comment_params)
+    @comment = @course.comments.build(comment_params)
     @comment.user = current_user
 
     render json: { errors: @comment.errors }, status: :unprocessable_entity unless @comment.save
