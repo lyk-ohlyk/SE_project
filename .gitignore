@@ -22,7 +22,6 @@
 
 .byebug_history
 
-doc/
 *.swp
 *~
 .project
