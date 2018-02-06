@@ -1,8 +1,9 @@
 ## 这是高级软件工程第13组的大作业
 项目部署地址：https://moyuu.herokuapp.com  
+-管理员账号：anewlyk@gmail.com -密码：seproject  
+您可以根据上面的账号密码来查看网站的具体功能。  
 
 #### 组员为：
-田秋凝，github:  
 徐可馨，github: [cordaX](https://github.com/cordaX)  
 门琳琳，github: [Alin3217](https://github.com/Alin3217)  
 刘炎堃，github: [lyk-ohlyk](https://github.com/lyk-ohlyk)  
