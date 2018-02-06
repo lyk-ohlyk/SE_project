@@ -53,7 +53,6 @@ RSpec.describe 'CoursePages', type: :request do
         specify { expect(course.reload.course_name).to eq new_name }
         specify { expect(course.reload.site_id).to eq new_course_site }
       end
-
     end
   end # edit course
 
