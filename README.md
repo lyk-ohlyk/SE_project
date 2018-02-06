@@ -1,6 +1,7 @@
 ## 这是高级软件工程第13组的大作业
 项目部署地址：https://moyuu.herokuapp.com  
--管理员账号：anewlyk@gmail.com -密码：seproject  
+-管理员账号：anewlyk@gmail.com  
+-密码：seproject  
 您可以根据上面的账号密码来查看网站的具体功能。  
 
 #### 组员为：
@@ -93,28 +94,33 @@ Comment（未完成)： 课程评论。
 作为管理员，我希望能够修改某个课程的相关信息，这样在我发现信息错误的时候可以直接在网页上更改，而不用进入数据库。  
 下面代码来自https://github.com/lyk-ohlyk/SE_project/blob/master/spec/requests/course_pages_spec.rb  
 ```ruby
-describe 'admin can do this' do
-  before do
-    sign_in admin
-    visit edit_course_path(course)
-  end
-  describe 'page' do
-    it { should have_content('修改课程信息') }
-    it { should have_title('修改课程信息') }
-  end
-
-  describe 'with valid information' do
-    let(:new_name) { 'New Course Name' }
-    let(:new_course_site) { '123333' }
+describe 'edit course' do
+  let(:user) { FactoryBot.create(:user) }
+  let(:admin) { FactoryBot.create(:admin)}
+  let(:course) { FactoryBot.create(:course)}
+  describe 'admin can do this' do
     before do
-      fill_in '课程名称', with: new_name
-      fill_in '课程网站', with: new_course_site
-      click_button '保存'
+      sign_in admin
+      visit edit_course_path(course)
     end
-    it { should have_title(new_name) }
-    it { should have_selector('div.alert.alert-success') }
-    specify { expect(course.reload.course_name).to eq new_name }
-    specify { expect(course.reload.site_id).to eq new_course_site }
+    describe 'page' do
+      it { should have_content('修改课程信息') }
+      it { should have_title('修改课程信息') }
+    end
+
+    describe 'with valid information' do
+      let(:new_name) { 'New Course Name' }
+      let(:new_course_site) { '123333' }
+      before do
+        fill_in '课程名称', with: new_name
+        fill_in '课程网站', with: new_course_site
+        click_button '保存'
+      end
+      it { should have_title(new_name) }
+      it { should have_selector('div.alert.alert-success') }
+      specify { expect(course.reload.course_name).to eq new_name }
+      specify { expect(course.reload.site_id).to eq new_course_site }
+    end
   end
 end
 ```
