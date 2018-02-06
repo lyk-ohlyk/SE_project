@@ -1,6 +1,6 @@
-``# 摸鱼小组的repository
-
 ## 这是高级软件工程第13组的大作业
+项目部署地址：https://moyuu.herokuapp.com
+
 #### 组员为：
 田秋凝，github:  
 徐可馨，github: [cordaX](https://github.com/cordaX)  
@@ -67,8 +67,36 @@ This document was ...
 #### 运行环境
 项目部署在heroku平台，在主流浏览器中均可正常运行，详见[运行地址](https://moyuu.herokuapp.com/)。
 ## 3. 项目具体设计
+为了能更好地运用rails，我们选择以Micheal Hartl的Ruby on Rails 4 Tutorial为参考，以MVC架构来组织软件。
+### Model(模型)列表
+User： 用户，记录了用户信息、用户之间的关系和用户与课程之间关系等。  
+Micropost： 微博，是Ruby on Rails 4 Tutorial中实现的一个模型，可以发布、更新。  
+Relationship： 记录用户关联关系的模型。  
+Course： 课程模型，用于表示国科大的各个课程。  
+Relatecourse： 记录用户和课程之间的关联关系的模型。  
+Assignment： 课程作业。  
+Comment（未完成)： 课程评论。
+![Markdown](https://raw.githubusercontent.com/lyk-ohlyk/SE_project/master/Doc/Model.png)
+
 #### User Stories
+由于用户和微博模型相关的测试已经在Tutorial中写了大部分，项目的开发过程中只写了与Course的User stories。  
+1. As a user, I want to see all the courses of USTC in courses page, so that I can be able to see their infomations.  
+2. As a user, I want to see the courses I learned in my profile page.  
+3. As a user, I want to see the courses a user learned in his profile page.  
+4. As a user, I want to be able to unlearn some courses I don't like, they should not be shown in my profile page.  
+5. As a learner, I want to know the recent homework assignments of my courses in my home page, so that I can be able to finish it on time.  
+6. As a new student in USTC, I want to see others opinions of courses in course page, so that I can get advice of choosing which course to learn.  (实现中)
+7. As a learner, I want to be emailed when a new assignment is published. (以下均未实现)
+8. As a punctual one, I want to list the courses on a calendar, so that I can be able to make a good plan.  
+9. As a punctual one, I want to be able to add/delete my event on the calendar.  
+10. As a punctual one, I want to classify different events on the calendar in different colors.  
+11. ...
 #### TDD test cases
+在编写程序过程中，大部分遵守了TDD的思路：Red - Green - Refactor
+所有的[spec文件](https://github.com/lyk-ohlyk/SE_project/tree/master/spec)都是TDD test cases.
+下面是一个testcase的例子。
+
+
 #### balabala
 
 
