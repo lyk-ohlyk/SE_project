@@ -1,5 +1,5 @@
 ## 这是高级软件工程第13组的大作业
-项目部署地址：https://moyuu.herokuapp.com
+项目部署地址：https://moyuu.herokuapp.com  
 
 #### 组员为：
 田秋凝，github:  
@@ -7,9 +7,6 @@
 门琳琳，github: [Alin3217](https://github.com/Alin3217)  
 刘炎堃，github: [lyk-ohlyk](https://github.com/lyk-ohlyk)  
 刘鹏坤，github: [liupengkun](https://github.com/liupengkun)  
-
-## 关于该文档
-This document was ...
 
 ## 目录
 
@@ -19,15 +16,13 @@ This document was ...
 * [项目的技术和实施方案](#2-%E9%A1%B9%E7%9B%AE%E7%9A%84%E6%8A%80%E6%9C%AF%E5%92%8C%E5%AE%9E%E6%96%BD%E6%96%B9%E6%A1%88)  
   * [技术](#%E6%8A%80%E6%9C%AF)  
     * [版本控制工具](#%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7)  
-    * [协作开发工具](#%E5%8D%8F%E4%BD%9C%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7)  
     * [数据库](#%E6%95%B0%E6%8D%AE%E5%BA%93)  
   * [实施的方案](#%E5%AE%9E%E6%96%BD%E7%9A%84%E6%96%B9%E6%A1%88)  
     * [应用框架](#%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6)  
     * [运行环境](#%E8%BF%90%E8%A1%8C%E7%8E%AF%E5%A2%83)  
 * [项目具体设计](#3-%E9%A1%B9%E7%9B%AE%E5%85%B7%E4%BD%93%E8%AE%BE%E8%AE%A1)  
-* [User stories](#user-stories)  
+  * [User stories](#user-stories)  
   * [TDD test cases](#tdd-test-cases)  
-  * [bala](#balabala)  
 
 
 ## 1. 项目介绍
@@ -56,8 +51,6 @@ This document was ...
 硬件设备层：该层位于系统架构的底层，面向其它层提供运行支撑，如服务器系统、备份系统、存储系统等。
 #### 版本控制工具
 项目采用git版本控制，采用github托管平台，[github项目地址](https://github.com/lyk-ohlyk/SE_project)。
-#### 协作开发工具
-小组采用rubymine这款强大的IDE，大大提高了开发效率，[rubymine官网下载地址](http://www.jetbrains.com/ruby/)。
 #### 数据库
 项目针对数据量小、结构简单的特点，采用了适合项目的sqlite3数据库。数据库结构模型如下。![Markdown](http://i2.bvimg.com/630972/0c797677ce5365d6.png)
 
@@ -68,7 +61,7 @@ This document was ...
 项目部署在heroku平台，在主流浏览器中均可正常运行，详见[运行地址](https://moyuu.herokuapp.com/)。
 ## 3. 项目具体设计
 为了能更好地运用rails，我们选择以Micheal Hartl的Ruby on Rails 4 Tutorial为参考，以MVC架构来组织软件。
-### Model(模型)列表
+#### Model(模型)列表
 User： 用户，记录了用户信息、用户之间的关系和用户与课程之间关系等。  
 Micropost： 微博，是Ruby on Rails 4 Tutorial中实现的一个模型，可以发布、更新。  
 Relationship： 记录用户关联关系的模型。  
@@ -80,23 +73,57 @@ Comment（未完成)： 课程评论。
 
 #### User Stories
 由于用户和微博模型相关的测试已经在Tutorial中写了大部分，项目的开发过程中只写了与Course的User stories。  
-1. As a user, I want to see all the courses of USTC in courses page, so that I can be able to see their infomations.  
-2. As a user, I want to see the courses I learned in my profile page.  
-3. As a user, I want to see the courses a user learned in his profile page.  
-4. As a user, I want to be able to unlearn some courses I don't like, they should not be shown in my profile page.  
-5. As a learner, I want to know the recent homework assignments of my courses in my home page, so that I can be able to finish it on time.  
-6. As a new student in USTC, I want to see others opinions of courses in course page, so that I can get advice of choosing which course to learn.  (实现中)
-7. As a learner, I want to be emailed when a new assignment is published. (以下均未实现)
-8. As a punctual one, I want to list the courses on a calendar, so that I can be able to make a good plan.  
-9. As a punctual one, I want to be able to add/delete my event on the calendar.  
-10. As a punctual one, I want to classify different events on the calendar in different colors.  
-11. ...
+0, As a user, I want to see all the courses of USTC in courses page, so that I can be able to see their infomations.  
+1, As a user, I want to see the courses I learned in my profile page.  
+2, As a user, I want to see the courses a user learned in his profile page.  
+3, As a user, I want to be able to unlearn some courses I don't like, they should not be shown in my profile page.  
+4, As a learner, I want to know the recent homework assignments of my courses in my home page, so that I can be able to finish it on time.  
+5, As a new student in USTC, I want to see others opinions of courses in course page, so that I can get advice of choosing which course to learn.  (实现中)
+6, As a learner, I want to be emailed when a new assignment is published. (以下均未实现)
+7, As a punctual one, I want to list the courses on a calendar, so that I can be able to make a good plan.  
+8, As a punctual one, I want to be able to add/delete my event on the calendar.  
+9, As a punctual one, I want to classify different events on the calendar in different colors.  
+10, ...
 #### TDD test cases
 在编写程序过程中，大部分遵守了TDD的思路：Red - Green - Refactor
 所有的[spec文件](https://github.com/lyk-ohlyk/SE_project/tree/master/spec)都是TDD test cases.
-下面是一个testcase的例子。
+下面是一个testcase的例子。  
+  
+作为管理员，我希望能够修改某个课程的相关信息，这样在我发现信息错误的时候可以直接在网页上更改，而不用进入数据库。  
+下面代码来自https://github.com/lyk-ohlyk/SE_project/blob/master/spec/requests/course_pages_spec.rb  
+```ruby
+describe 'admin can do this' do
+  before do
+    sign_in admin
+    visit edit_course_path(course)
+  end
+  describe 'page' do
+    it { should have_content('修改课程信息') }
+    it { should have_title('修改课程信息') }
+  end
 
+  describe 'with valid information' do
+    let(:new_name) { 'New Course Name' }
+    let(:new_course_site) { '123333' }
+    before do
+      fill_in '课程名称', with: new_name
+      fill_in '课程网站', with: new_course_site
+      click_button '保存'
+    end
+    it { should have_title(new_name) }
+    it { should have_selector('div.alert.alert-success') }
+    specify { expect(course.reload.course_name).to eq new_name }
+    specify { expect(course.reload.site_id).to eq new_course_site }
+  end
+end
+```
 
-#### balabala
+在上面的代码中，先作为admin登陆，然后访问课程的编辑页面，修改课程的name和course_site（一个6位数字）属性，修改后确认是否有成功提示并确认数据库中的属性是否更改。
 
+在写好代码后，运行
+```shell
+$ rspec spec/requests/course_pages_spec.rb
+```
+可以得到下面的结果  
+![Markdonw](https://raw.githubusercontent.com/lyk-ohlyk/SE_project/master/Doc/rspec%E6%88%AA%E5%9B%BE.png)
 
