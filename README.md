@@ -75,17 +75,17 @@ Comment（未完成)： 课程评论。
 
 #### User Stories
 由于用户和微博模型相关的测试已经在Tutorial中写了大部分，项目的开发过程中只写了与Course的User stories。  
-0, As a user, I want to see all the courses of USTC in courses page, so that I can be able to see their infomations.  
-1, As a user, I want to see the courses I learned in my profile page.  
-2, As a user, I want to see the courses a user learned in his profile page.  
-3, As a user, I want to be able to unlearn some courses I don't like, they should not be shown in my profile page.  
-4, As a learner, I want to know the recent homework assignments of my courses in my home page, so that I can be able to finish it on time.  
-5, As a new student in USTC, I want to see others opinions of courses in course page, so that I can get advice of choosing which course to learn.  (实现中)
-6, As a learner, I want to be emailed when a new assignment is published. (以下均未实现)
-7, As a punctual one, I want to list the courses on a calendar, so that I can be able to make a good plan.  
-8, As a punctual one, I want to be able to add/delete my event on the calendar.  
-9, As a punctual one, I want to classify different events on the calendar in different colors.  
-10, ...
+* As a user, I want to see all the courses of USTC in courses page, so that I can be able to see their infomations.  
+* As a user, I want to see the courses I learned in my profile page.  
+* As a user, I want to see the courses a user learned in his profile page.  
+* As a user, I want to be able to unlearn some courses I don't like, they should not be shown in my profile page.  
+* As a learner, I want to know the recent homework assignments of my courses in my home page, so that I can be able to finish it on time.  
+* As a new student in USTC, I want to see others opinions of courses in course page, so that I can get advice of choosing which course to learn.  (实现中)
+* As a learner, I want to be emailed when a new assignment is published. (以下均未实现)
+* As a punctual one, I want to list the courses on a calendar, so that I can be able to make a good plan.  
+* As a punctual one, I want to be able to add/delete my event on the calendar.  
+* As a punctual one, I want to classify different events on the calendar in different colors.  
+
 #### TDD test cases
 在编写程序过程中，大部分遵守了TDD的思路：Red - Green - Refactor
 所有的[spec文件](https://github.com/lyk-ohlyk/SE_project/tree/master/spec)都是TDD test cases.
