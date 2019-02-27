@@ -39,7 +39,7 @@
 ## 2. 项目的技术和实施方案
 ### 技术
 系统应用架构如下图所示：
-![Markdown](http://i4.bvimg.com/630972/4fb6ab85e04820fd.png)
+![Markdown](https://raw.githubusercontent.com/lyk-ohlyk/SE_project/master/Doc/架构.png)
 信息门户层：该层位于系统的顶层，面向网站的所有用户提供业务处理功能，
 根据需求分析，用户可以划分为网站管理员、学生、教师等。用
 户进行业务处理主要通过界面友好的功能界面实现。
@@ -54,7 +54,7 @@
 #### 版本控制工具
 项目采用git版本控制，采用github托管平台，[github项目地址](https://github.com/lyk-ohlyk/SE_project)。
 #### 数据库
-项目针对数据量小、结构简单的特点，采用了适合项目的sqlite3数据库。数据库结构模型如下。![Markdown](http://i2.bvimg.com/630972/0c797677ce5365d6.png)
+项目针对数据量小、结构简单的特点，采用了适合项目的sqlite3数据库。数据库结构模型如下。![Markdown](https://raw.githubusercontent.com/lyk-ohlyk/SE_project/master/Doc/数据库.png)
 
 ### 实施的方案
 #### 应用框架
