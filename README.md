@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 这是高级软件工程第13组的大作业
 项目部署地址：https://moyuu.herokuapp.com  
 -管理员账号：anewlyk@gmail.com  
